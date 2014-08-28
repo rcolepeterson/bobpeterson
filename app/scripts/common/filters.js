@@ -1,3 +1,4 @@
+/*jshint quotmark: false */
 'use strict';
 var filters = angular.module('app.filters', []);
 
@@ -66,6 +67,6 @@ filters.filter('firstname', function() {
     if (firstspace !== -1) {
       value = value.substr(0, firstspace);
     }
-    return value
+    return value;
   };
 });

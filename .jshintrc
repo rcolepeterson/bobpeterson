@@ -32,7 +32,7 @@
   "loopfunc"      : false , // {true|false} Tolerate functions being defined in loops
   "maxcomplexity" : false , // {int} Max cyclomatic complexity per function
   "maxdepth"      : false , // {int} Max depth of nested blocks (within functions)
-  "maxlen"        : 100   , // {int} Max number of characters per line
+  "maxlen"        : 200   , // {int} Max number of characters per line
   "maxparams"     : false , // {int} Max number of formal params allowed per function
   "maxstatements" : false , // {int} Max number statements per function
   "moz"           : false , // {true|false} Allow Mozilla specific syntax (can override "esnext")
@@ -66,6 +66,6 @@
     "ga"        : false ,  // Google Analytics
     "_gaq"      : false ,  // Google Analytics
     "Modernizr" : false,    // Modernizr
-    "angular": false
+    "angular"   : false
   }
 }

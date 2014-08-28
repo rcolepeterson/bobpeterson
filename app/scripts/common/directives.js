@@ -6,7 +6,8 @@ directives.directive('imgError', function() {
     restrict: 'A',
     link: function(scope, element) {
       element.bind('error', function() {
-        $(this).attr('src', 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+        $(this).attr('src', 
+          'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
         $(this).unbind('error', this);
       });
     }
@@ -37,11 +38,9 @@ directives.directive('backstretch', function() {
   return {
     restrict: 'A',
     link: function(scope, element, attr) {
-      //$(element).backstretch(attr.backgroundurl);
       $(element).backstretch(attr.backgroundurl);
-
     }
-  }
+  };
 });
 
 /**
@@ -60,10 +59,10 @@ directives.directive('sharefacebook', function() {
       element.bind('click', function() {
         var shareTitle = 'my title',
           captionFacebook = 'Facebook caption',
-          fbDesc = 'Have a journey to share? Enter the #WinExtraordinary Instagram photo contest, '+
-                   'sponsored by Holiday Inn hotels, for your chance to win one of the daily '+
-                   'sweepstakes prizes or the grand prize: your next journey. Enter now! '+
-                   'bit.ly/XxXxXxX', // @todo update this
+          fbDesc = 'Have a journey to share? Enter the #WinExtraordinary Instagram photo contest, ' +
+          'sponsored by Holiday Inn hotels, for your chance to win one of the daily ' +
+          'sweepstakes prizes or the grand prize: your next journey. Enter now! ' +
+          'bit.ly/XxXxXxX', // @todo update this
           shareUrl = 'http://' + window.location.hostname.toLowerCase(),
           picture = element.data('img'),
           facebookAppId = ApplicationConfiguration.configSettings.fbAppId;
@@ -85,8 +84,8 @@ directives.directive('sharetwitter', function() {
     restrict: 'A',
     link: function(scope, element) {
       element.bind('click', function() {
-        var desc = 'Share a journey. Win a new one. Enter the #WinExtraordinary Instagram contest '+
-                   'sponsored by @HolidayInn bit.ly/XxXxXxX', // @todo update url here
+        var desc = 'Share a journey. Win a new one. Enter the #WinExtraordinary Instagram contest ' +
+          'sponsored by @HolidayInn bit.ly/XxXxXxX', // @todo update url here
           shareUrl = 'bit.ly/XxXxXxX'; // @todo update this. JR rules!!!!!!!!!!!!!!!!!!!!!
         possible.ShareMe.openTwitter(
           desc, shareUrl
@@ -98,8 +97,8 @@ directives.directive('sharetwitter', function() {
 
 // a directive to auto-collapse long text
 //https://github.com/doukasd/AngularJS-Components/blob/master/dd-collapse-text/dd-collapse-text.js
-directives.directive('ddcollapsetext', ['$compile','$timeout',
-  function($compile,$timeout) {
+directives.directive('ddcollapsetext', ['$compile', '$timeout',
+  function($compile, $timeout) {
     return {
       restrict: 'A',
       replace: true,
