@@ -1,0 +1,71 @@
+/**
+ * JSHint Config File for POSSIBLE
+ *
+ * @see  {@link http://www.jshint.com/docs/options|JSHint Options}
+ * @see  {@link http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml|Style Guide}
+ * @version 0.2
+ */
+{
+  /* Rules */
+  "asi"           : false , // {true|false} Tolerate Automatic Semicolon Insertion (no semicolons)
+  "bitwise"       : true  , // {true|false} Prohibit bitwise operators (&, |, ^, etc.)
+  "boss"          : false , // {true|false} Tolerate assignments where comparisons would be expected
+  "camelcase"     : true  , // {true|false} Identifiers must be in camelCase
+  "curly"         : true  , // {true|false} Require {} for every new block or scope
+  "debug"         : false , // {true|false} Allow debugger statements e.g. browser breakpoints.
+  "eqeqeq"        : true  , // {true|false} Require triple equals (===) for comparison
+  "eqnull"        : false , // {true|false} Tolerate use of `== null`
+  "es5"           : false , // {true|false} Allow ES5 syntax (getters and setters)
+  "esnext"        : false , // {true|false} Allow ES.next (ES6) syntax (`const`)
+  "evil"          : false , // {true|false} Tolerate use of `eval` and `new Function()`
+  "expr"          : false , // {true|false} Tolerate `ExpressionStatement` as Programs
+  "forin"         : true  , // {true|false} Require filtering forin loops with obj.hasOwnProperty()
+  "funcscope"     : false , // {true|false} Tolerate defining variables inside control statements"
+  "globalstrict"  : false , // {true|false} Allow global "use strict" (also enables 'strict')
+  "immed"         : false , // {true|false} Require immediate invocations to be wrapped in parens
+  "indent"        : 2     , // {int} Number of spaces to use for indentation
+  "iterator"      : false , // {true|false} Tolerate using the `__iterator__` property
+  "lastsemic"     : false , // {true|false} Allow no semicolon on last statement of a 1-line block
+  "latedef"       : false , // {true|false} Require variables/functions be defined before being used
+  "laxbreak"      : false , // {true|false} Tolerate possibly unsafe line breakings
+  "laxcomma"      : false , // {true|false} Tolerate comma-first style coding
+  "loopfunc"      : false , // {true|false} Tolerate functions being defined in loops
+  "maxcomplexity" : false , // {int} Max cyclomatic complexity per function
+  "maxdepth"      : false , // {int} Max depth of nested blocks (within functions)
+  "maxlen"        : 100   , // {int} Max number of characters per line
+  "maxparams"     : false , // {int} Max number of formal params allowed per function
+  "maxstatements" : false , // {int} Max number statements per function
+  "moz"           : false , // {true|false} Allow Mozilla specific syntax (can override "esnext")
+  "multistr"      : false , // {true|false} Tolerate multi-line strings
+  "newcap"        : false , // {true|false} Require capitalization of all constructor functions
+  "noarg"         : true  , // {true|false} Prohibit use of arguments.caller and arguments.callee
+  "noempty"       : true  , // {true|false} Prohibit use of empty blocks
+  "nonew"         : false , // {true|false} Prohibit use of constructors without assignment
+  "nonstandard"   : false , // {true|false} Widely adopted globals (escape, unescape , etc)
+  "plusplus"      : false , // {true|false} Prohibit use of `++` & `--`
+  "proto"         : false , // {true|false} Tolerate using the `__proto__` property
+  "quotmark"      : true  , // {true|false|"single"|"double"} true ensures consistency among quotes
+  "scripturl"     : false , // {true|false} Tolerate script-targeted URLs
+  "shadow"        : false , // {true|false} Allows re-defining variables later in code
+  "strict"        : true  , // {true|false} Requires all functions run in ES5 Strict Mode
+  "sub"           : false , // {true|false} Tolerate bracket notation when dot notation can be used
+  "supernew"      : false , // {true|false} Tolerate `new function () { ... };` and `new Object;`
+  "undef"         : true  , // {true|false} Require all non-global variables to be declared
+  "unused"        : true  , // {true|false} Require all defined variables be used
+  "validthis"     : false , // {true|false} Tolerate using this in a non-constructor function
+
+  /* Globals */
+  "browser"       : true  , // Web Browser (window, document , etc)
+  "devel"         : true  , // Development/debugging (alert, confirm  , etc)
+  "jquery"        : true  , // jQuery
+  "node"          : true  , // Node.js
+
+  /* Custom Globals */
+  "globals" : {
+    // "name"     : {true|false} True if the global is editable, False for read-only
+    "ga"        : false ,  // Google Analytics
+    "_gaq"      : false ,  // Google Analytics
+    "Modernizr" : false,    // Modernizr
+    "angular": false
+  }
+}
