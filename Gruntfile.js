@@ -7,7 +7,7 @@
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
@@ -42,8 +42,12 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
+      //@todo - how do i grab scss from multiple directories and compile into on main.css file.
       compass: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        files: [
+          '<%= yeoman.app %>/styles/{,*/}*.{scss,sass}',
+          '<%= yeoman.app %>/scripts/modules/about/styles/about.scss'
+        ],
         tasks: ['compass:server', 'autoprefixer']
       },
       gruntfile: {
@@ -156,6 +160,7 @@ module.exports = function (grunt) {
     },
 
     // Compiles Sass to CSS and generates necessary files if requested
+    //@todo - how do i grab scss from multiple directories and compile into on main.css file. cpeterson.
     compass: {
       options: {
         sassDir: '<%= yeoman.app %>/styles',
@@ -377,7 +382,7 @@ module.exports = function (grunt) {
   });
 
 
-  grunt.registerTask('serve', function (target) {
+  grunt.registerTask('serve', function(target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
@@ -392,7 +397,7 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.registerTask('server', function (target) {
+  grunt.registerTask('server', function(target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve:' + target]);
   });
