@@ -54,7 +54,7 @@ The registerModule method will create your module and push it to the dependencie
 The build process is a port of the yeoman/generator-angular build process and it's docs can be used as a reference. [yeoman/generator-angular](https://github.com/yeoman/generator-angular). 
 
 
-###TODO: Format app structure in this file.
+###TODO: Format this doc so that it is legiable and the app structure and code examples make sense.
 ###TODO: Figure out how to best deal with module > images.
 ###TODO: Figure out how to grab scss from multiple directories and compile into one main.css file, so that each module is in charge of it's own sass file and I do not have to import them in the main.scss file.
 
