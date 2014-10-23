@@ -2,4 +2,4 @@
 'use strict';
 
 // Use Applicaion configuration module to register a new module and dependencies.
-ApplicationConfiguration.registerModule('core',['core.directives']);
+ApplicationConfiguration.registerModule('core',['myApplication.templates','core.directives']);

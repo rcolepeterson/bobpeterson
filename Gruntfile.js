@@ -42,6 +42,13 @@ module.exports = function(grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
+      html2js: {
+        files: ['<%= yeoman.app %>/scripts/modules/**/views/*.html'],
+        tasks: ['newer:html2js:main'],
+        options: {
+          livereload: true
+        }
+      },
       //@todo - how do i grab scss from multiple directories and compile into on main.css file.
       // compass: {
       //   files: [
@@ -221,6 +228,31 @@ module.exports = function(grunt) {
         }
       }
     },
+    // template caching.
+    html2js: {
+      options: {
+        base: 'app',
+        module: 'myApplication.templates',
+        singleModule: true,
+        useStrict: true,
+        htmlmin: {
+          collapseBooleanAttributes: true,
+          collapseWhitespace: true,
+          removeAttributeQuotes: true,
+          removeComments: true,
+          removeEmptyAttributes: true,
+          removeRedundantAttributes: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true
+        }
+      },
+      main: {
+        src: ['<%= yeoman.app %>/scripts/modules/core/views/**/*.html'],
+        dest: '<%= yeoman.app %>/scripts/populate_template_cache.js'
+      }
+    },
+
+
 
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
@@ -332,7 +364,9 @@ module.exports = function(grunt) {
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
             'fonts/*',
-            'scripts/modules/core/views/*.html',
+            // views/* html .... these now be coming from the template cache.
+            // see html2js.
+            //'scripts/modules/core/views/*.html',
             'scripts/modules/core/api/*.json'
           ]
         }, {
@@ -413,6 +447,7 @@ module.exports = function(grunt) {
       'bowerInstall',
       'concurrent:server',
       'autoprefixer',
+      'html2js:main',
       'connect:livereload',
       'watch'
     ]);
@@ -437,6 +472,7 @@ module.exports = function(grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
+    'html2js:main',
     'concat',
     'ngmin',
     'copy:dist',
