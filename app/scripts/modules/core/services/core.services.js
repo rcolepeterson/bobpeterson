@@ -20,36 +20,6 @@ angular.module('core').service('imageService', function($http, $q) {
 
     var serviceUrl = 'scripts/modules/core/api/photos.json';
 
-    // ---
-    //TESTING. remove when u add a  real service.
-    // ---
-    //add fake data for testing.
-    if (serviceUrl === '') {
-      var images = [];
-      var image;
-
-      for (var i = 1; i <= 18; i++) {
-        var image = {
-          caption: "Lets party",
-          fullname: "cole peterson",
-          image_standard: "http://fillmurray.com/500/300",
-          image_thumbnail: "http://fillmurray.com/100/100",
-          username: "cole" + i
-        }
-        images.push(image);
-      }
-      var dfd = $q.defer();
-      
-      //Mock resolve.
-      dfd.resolve({
-        status: 'ok',
-        data: images
-      });
-      return dfd.promise;
-    }
-    //end testing
-    // ---
-
     var request = $http({
       method: 'get',
       url: serviceUrl,
@@ -63,7 +33,7 @@ angular.module('core').service('imageService', function($http, $q) {
   }
 
   /**
-   * Get the images objects.
+   * Get the images objects 2. Shorthand for doing what the above code does.
    */
   function getBobImages() {
 
@@ -71,7 +41,6 @@ angular.module('core').service('imageService', function($http, $q) {
     return $http.get(serviceUrl);
 
   }
-
 
 
   // ---
@@ -101,7 +70,7 @@ angular.module('core').service('imageService', function($http, $q) {
   // transform the successful response, unwrapping the application data
   // from the API response payload.
   function handleSuccess(response) {
-    return (response.data);
+    return (response);
   }
 
 });

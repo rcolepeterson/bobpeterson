@@ -1,31 +1,21 @@
-<section data-ng-controller="HomeController">
-    <div class="container-fluid main">
+<section data-ng-controller="HomeController" id="home">
+    <div class="container">
         <div class="row">
-         <h1 class="testOverride">What color am i?</h1>
-            <div class="col-sm-3 col-md-2 sidebar">
-                <ul class="nav nav-sidebar">
-                    <div ng-repeat="item in homeModel.categoryies.category">
-                        <li><a data-ng-click="selectACategory($index)">{{item.categoryName}}</a>
-                        </li>
-                    </div>
-                </ul>
+            <h1 class="testOverride">Welcome to Home</h1>
+            <div class="row">&nbsp;</div>
+            <div class="row photo imageBig">
+                <img img-error data-ng-src="//bobpeterson.com/photographer/{{homeModel.selectedImage}}" class="center-block img-responsive animation-fade" data-imageloaded="animation-faded">
             </div>
-            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 ">
-                <div class="row">&nbsp;</div>
-                <div class="row photo imageHolder">
-                    <img imgError data-ng-src="//bobpeterson.com/photographer/{{homeModel.selectedImage}}" class="center-block img-responsive animation-fade" data-imageloaded="animation-faded">
-                </div>
-                <div class="row">&nbsp;</div>
-                <div class="row">
-                    <div class="photo thumbnail col-sm-1" ng-repeat="item in homeModel.images">
-                        <a data-ng-click="select($index)">
-                            <div class="photo-wrapper">
-                                <img imgError data-ng-src="//bobpeterson.com/photographer/{{item.imagethumb}}" class="img-responsive animation-fade" data-imageloaded="animation-faded">
-                            </div>
-                        </a>
-                    </div>
+            <div class="row">&nbsp;</div>
+            <div class="row">
+                <div class="photo thumbnail col-sm-1" ng-repeat="item in homeModel.images">
+                    <a data-ng-click="select($index)">
+                        <div class="photo-wrapper">
+                            <img img-error data-ng-src="//bobpeterson.com/photographer/{{item.imagethumb}}" class="img-responsive animation-fade" data-imageloaded="animation-faded">
+                        </div>
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
+        </div><!--/row-->
+    </div>><!--/container-->
 </section>

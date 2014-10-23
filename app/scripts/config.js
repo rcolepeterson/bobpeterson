@@ -38,11 +38,6 @@ var ApplicationConfiguration = (function() {
     messages: {
       errormsg: 'There was an Error. Please try again Later'
     },
-    serviceGetImages: 'api/getimages/all/',
-    serviceGetFavoriteImages: 'api/getimages/fav/',
-    serviceGetWinnerImages: 'api/getimages/win/',
-    serviceGetJudgeImages: 'api/getimages/judgeimages/',
-    serviceSearchImages: 'api/search/',
     fbAppId: facebookApplicationId
   };
 

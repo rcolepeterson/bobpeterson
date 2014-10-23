@@ -1,12 +1,13 @@
 /*global possible:false, ApplicationConfiguration:false */
 'use strict';
 var directives = angular.module('app.directives', []);
+
 directives.directive('imgError', function() {
   return {
     restrict: 'A',
     link: function(scope, element) {
       element.bind('error', function() {
-        $(this).attr('src', 
+        $(this).attr('src',
           'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
         $(this).unbind('error', this);
       });
@@ -95,7 +96,7 @@ directives.directive('sharetwitter', function() {
   };
 });
 
-// a directive to auto-collapse long text
+//Auto-collapse long text
 //https://github.com/doukasd/AngularJS-Components/blob/master/dd-collapse-text/dd-collapse-text.js
 directives.directive('ddcollapsetext', ['$compile', '$timeout',
   function($compile, $timeout) {
@@ -142,3 +143,29 @@ directives.directive('ddcollapsetext', ['$compile', '$timeout',
     };
   }
 ]);
+
+
+/**
+ * Initializes an overlay from the overlay service.
+ * Note - Used for overlays that need to be more robust the what you get
+ * from the dialogueService > displayUserMsg found @ /app/scripts/common/services.js
+ * @todo- implement. the overlay service does not exist. 
+ *         it does in the HT discover progress and big data. port over cole.
+ * @param  {[type]} $compile       [description]
+ * @param  {[type]} $http          [description]
+ * @param  {[type]} overlayService [description]
+ * @return {[type]}                [description]
+ */
+directives.directive('overlay', function($compile, $http, overlayService) {
+  return {
+    restrict: 'A',
+    controller: function($scope) {
+      $scope.launch = function(template) {
+        //overlay service expects data, a template and a controller.
+        var data = {},
+          controller = {};
+        overlayService.launch(data, template, controller);
+      };
+    }
+  };
+});

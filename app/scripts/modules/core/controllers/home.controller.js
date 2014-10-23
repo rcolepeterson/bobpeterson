@@ -17,21 +17,14 @@ angular.module('core').controller('HomeController', ['$scope', '$stateParams', '
     $scope.select = function(n) {
       dialogueService.displayUserMsg('congrats!', 'you have selected thumb number ' + n);
     }
-    /**
-     * User has clicked on a left menu link.
-     * @param  {[type]} n [description]
-     * @return {[type]}   [description]
-     */
-    $scope.selectACategory = function(n) {
-      dialogueService.displayUserMsg('congrats!', 'you have selected category number ' + n);
-    }
 
     /**
      * apply the remote data to the local scope.
      * @param  {[type]} images [description]
      * @return {[type]}        [description]
      */
-    function applyRemoteData(images) {
+    function applyRemoteData(response) {
+      var images = response.data;
       $scope.homeModel.categoryies = images.categoryies;
       $scope.homeModel.images = images.categoryies.category[0].pic;
       $scope.homeModel.selectedImage = images.categoryies.category[0].pic[0].image;
@@ -43,7 +36,7 @@ angular.module('core').controller('HomeController', ['$scope', '$stateParams', '
      * @return {[type]}     [description]
      */
     function displayErrorMsg(msg) {
-      dialogueService.displayUserMsg('Something is not good' , msg);
+      dialogueService.displayUserMsg('Something is not good', msg);
     }
 
     /**
@@ -72,7 +65,11 @@ angular.module('core').controller('HomeController', ['$scope', '$stateParams', '
      * @return {[type]} [description]
      */
     $scope.getImages = function() {
-      imageService.getImages()
+      // imageService.getImages()
+      //   .then(serviceHandler)
+      //   .then(findPost);
+      
+       imageService.getBobImages()
         .then(serviceHandler)
         .then(findPost);
     };

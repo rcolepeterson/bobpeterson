@@ -25,6 +25,7 @@ angular.module(ApplicationConfiguration.applicationModuleName)
       responseError: function(response) {
         if (!(--numLoadings)) {
           $rootScope.httpLoadingStatus = 'Error.';
+          console.warn('we got an error: '+ response.status, response.statusText, response.data);
         }
         return $q.reject(response);
       }

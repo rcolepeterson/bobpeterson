@@ -1,4 +1,20 @@
-.testOverride{
-
-	color:#ff0;
+#home {
+    .testOverride {
+        color: #ccc;
+    }
+    .photo {
+        background: white url(/images/ajax-loader.gif) center 20px no-repeat;
+        margin: 0 10px 10px 0;
+        position: relative;
+        &.imageBig {
+            background-color: transparent;
+            background-position-x: 50%;
+            background-position-y: 100px;
+            margin: 10px;
+            border: 0;
+            img {
+                border: 5px solid white;
+            }
+        }
+    }
 }
