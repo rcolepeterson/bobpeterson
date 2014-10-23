@@ -12,10 +12,15 @@ $ bower install
 grunt serve
 
 Includes -
+
 modular structure to code.
+
 grunt-sass instead of compass to speed things up.
+
 global loading and error handler.
+
 some directives and filters and services to get you going.
+
 [angular-ui code for help with bootstrap components.](http://angular-ui.github.io/bootstrap/)
 
 
