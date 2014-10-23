@@ -23,6 +23,8 @@ some directives and filters and services to get you going.
 
 [angular-ui code for help with bootstrap components.](http://angular-ui.github.io/bootstrap/)
 
+$templateCache for caching your templates. see core /app/scripts/modules/core/core.module.js and the grunt task html2js for detials.
+
 
 cole.peterson@possible.com
 
