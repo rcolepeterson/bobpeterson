@@ -3,7 +3,7 @@
  * import all all the bootstrap stuff u need here. exclude the stuff you do not need.
  * NOTE the path to the bootstrap assets is relative to the dynaimacally generated style/built/build.scss css file. (not this file).
  */
-$icon-font-path: "../../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 
 // Core variables and mixins
 @import "../../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/variables";
