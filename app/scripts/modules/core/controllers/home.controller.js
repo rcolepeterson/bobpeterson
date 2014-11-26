@@ -1,10 +1,22 @@
 /*global io:false */
 'use strict';
-angular.module('core').controller('HomeController', ['$scope', '$stateParams', 'imageService', 'dialogueService',
-  function($scope, $stateParams, imageService, dialogueService) {
+angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$stateParams', 'imageService', 'dialogueService',
+  function($scope, $rootScope, $stateParams, imageService, dialogueService) {
+
+
+    $scope.slides = [
+      'http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg',
+      'http://flexslider.woothemes.com/images/kitchen_adventurer_lemon.jpg',
+      'http://flexslider.woothemes.com/images/kitchen_adventurer_donut.jpg',
+      'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
+    ];
+
 
     //Name space the scope.
-    $scope.homeModel = {}
+    $scope.homeModel = {};
+    $scope.homeModel.curImageNum = 0;
+    $scope.homeModel.curCatNum = 4;
+    var curImageNum = 0;
 
     //Stick config settings on the scope so the ui binding can use. @todo - better way? convert to service?
     $scope.configSettings = ApplicationConfiguration.configSettings;
@@ -14,8 +26,50 @@ angular.module('core').controller('HomeController', ['$scope', '$stateParams', '
      * @param  {[type]} n [description]
      * @return {[type]}   [description]
      */
-    $scope.select = function(n) {
-      dialogueService.displayUserMsg('congrats!', 'you have selected thumb number ' + n);
+    $scope.selectImage = function(n) {
+      //console.log("you have selected thumb number " + n);
+      //dialogueService.displayUserMsg('congrats!', 'you have selected thumb number ' + n);
+      $scope.homeModel.curImageNum = n;
+      $scope.homeModel.selectedImage = $scope.homeModel.images[$scope.homeModel.curImageNum].image;
+
+    }
+
+    /**
+     * User has clicked on a left menu link.
+     * @param  {[type]} n [description]
+     * @return {[type]}   [description]
+     */
+    $scope.selectACategory = function(n) {
+
+      $scope.homeModel.curCatNum = n;
+      $scope.homeModel.images = $scope.homeModel.categoryies.category[n].pic;
+      $scope.selectImage(0);
+    }
+
+    /**
+     * listen for dispatch from outside this module. select cat and load 1st image.
+     * @param  {[type]} event [description]
+     * @param  {[type]} mass  [description]
+     * @return {[type]}       [description]
+     */
+    $rootScope.$on('categorySelected', function(event, mass) {
+      $scope.selectACategory(mass);
+    });
+
+    $scope.getNextImage = function() {
+      curImageNum++;
+      if (curImageNum === $scope.homeModel.images.length) {
+        curImageNum = 0;
+      }
+      $scope.selectImage(curImageNum);
+    }
+
+    $scope.getPrevImage = function() {
+      curImageNum--;
+      if (curImageNum === -1) {
+        curImageNum = $scope.homeModel.images.length - 1;
+      }
+      $scope.selectImage(curImageNum);
     }
 
     /**
@@ -25,9 +79,13 @@ angular.module('core').controller('HomeController', ['$scope', '$stateParams', '
      */
     function applyRemoteData(response) {
       var images = response.data;
+      var catN = $scope.homeModel.curCatNum;
       $scope.homeModel.categoryies = images.categoryies;
-      $scope.homeModel.images = images.categoryies.category[0].pic;
-      $scope.homeModel.selectedImage = images.categoryies.category[0].pic[0].image;
+      $scope.homeModel.images = images.categoryies.category[catN].pic;
+      $scope.homeModel.selectedImage = images.categoryies.category[catN].pic[0].image;
+
+      //let other views know the data has been defined. (top menu).
+      $rootScope.$broadcast('categoryiesDefined', $scope.homeModel.categoryies);
     }
 
     /**
@@ -55,7 +113,7 @@ angular.module('core').controller('HomeController', ['$scope', '$stateParams', '
      * @return {[type]} [description]
      */
     var findPost = function() {
-      console.log('find post. write code to get it!');
+      //console.log('find post. write code to get it!');
     }
 
     //----------------------------------------------------------------service API
@@ -68,8 +126,8 @@ angular.module('core').controller('HomeController', ['$scope', '$stateParams', '
       // imageService.getImages()
       //   .then(serviceHandler)
       //   .then(findPost);
-      
-       imageService.getBobImages()
+
+      imageService.getBobImages()
         .then(serviceHandler)
         .then(findPost);
     };
@@ -81,4 +139,12 @@ angular.module('core').controller('HomeController', ['$scope', '$stateParams', '
 
   }
 
-]);
+]).directive('carousel', [function() {
+  return {
+
+  }
+}]).directive('slide', [function() {
+  return {
+
+  }
+}]);

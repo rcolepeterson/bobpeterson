@@ -63,9 +63,11 @@
   /* Custom Globals */
   "globals" : {
     // "name"     : {true|false} True if the global is editable, False for read-only
-    "ga"        : false ,  // Google Analytics
-    "_gaq"      : false ,  // Google Analytics
-    "Modernizr" : false,    // Modernizr
-    "angular"   : false
+    "ga"          : false ,  // Google Analytics
+    "_gaq"        : false ,  // Google Analytics
+    "Modernizr"   : false,    // Modernizr
+    "angular"     : false,
+    "TimelineMax" : false,
+    "TweenLite"   : false
   }
 }

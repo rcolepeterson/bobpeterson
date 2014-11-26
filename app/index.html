@@ -8,16 +8,18 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Angular Boilerplate</title>
-    <meta name="description" content="">
+    <title>Bob Peterson Photographer</title>
+    <meta name="description" content="Bob Peterson is the Seattle Photographer who became famous taking pictures for Sports Illustrated, Life and Nike. Bob Peterson is represented by FRANK MEO 212.643.7428.">
+    <meta name="keywords" content="bob peterson, photogrpaher, magazine photojournalism, Nike, Physio Control, seattle, seattle discovered, Bob Peterson Photographer">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
 
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">-->
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="scripts/lib/jquery.mThumbnailScroller.css">
     <!-- endbuild -->
-
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 </head>
 
 <body class="ng-cloak">
@@ -26,7 +28,6 @@
     <![endif]-->
     <header data-ng-include="'scripts/modules/core/views/header.view.html'"></header>
     <section data-ui-view></section>
-    <footer data-ng-include="'scripts/modules/core/views/footer.view.html'"></footer>
 
 
     <!--[if lt IE 9]>
@@ -37,31 +38,28 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="bower_components/jquery/jquery.js"></script>
+
     <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
     <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js"></script>
     <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
+
     <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
     <script src="bower_components/respond/dest/respond.src.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-debounce/dist/angular-debounce.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
+
+
+    <!--CDN link for the latest TweenMax-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/populate_template_cache.js"></script>
@@ -76,13 +74,11 @@
     <script src="scripts/modules/core/controllers/header.controller.js"></script>
     <script src="scripts/modules/core/controllers/home.controller.js"></script>
     <script src="scripts/modules/core/directives/core.directives.js"></script>
-
     <script src="scripts/modules/about/about.module.js"></script>
     <script src="scripts/modules/about/config/about.routes.js"></script>
     <script src="scripts/modules/about/controllers/about.controller.js"></script>
     <script src="scripts/modules/about/directives/about.directives.js"></script>
-
-    <script src="scripts/lib/shareMe.js"></script>
+    <script src="scripts/lib/jquery.mThumbnailScroller.js"></script>
     <!-- endbuild -->
 </body>
 

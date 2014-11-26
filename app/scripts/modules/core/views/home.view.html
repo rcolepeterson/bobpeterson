@@ -1,21 +1,45 @@
 <section data-ng-controller="HomeController" id="home">
     <div class="container">
         <div class="row">
-            <h1 class="testOverride">Welcome to Home</h1>
-            <div class="row">&nbsp;</div>
-            <div class="row photo imageBig">
-                <img img-error data-ng-src="//bobpeterson.com/photographer/{{homeModel.selectedImage}}" class="center-block img-responsive animation-fade" data-imageloaded="animation-faded">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <div ng-repeat="item in homeModel.categoryies.category">
+                        <li><a data-ng-click="selectACategory($index)" ng-class="{active: $index=== homeModel.curCatNum}">{{item.categoryName}}</a>
+                        </li>
+                    </div>
+                    <div class="contact">
+                        <a href="mailto:bobpet@comcast.net"><small>contact Bob Peterson </small></a><br>
+                        <small class="agent">represented by Frank Meo<br>212.643.7428</small>
+                    </div>
+                </ul>
             </div>
-            <div class="row">&nbsp;</div>
-            <div class="row">
-                <div class="photo thumbnail col-sm-1" ng-repeat="item in homeModel.images">
-                    <a data-ng-click="select($index)">
-                        <div class="photo-wrapper">
-                            <img img-error data-ng-src="//bobpeterson.com/photographer/{{item.imagethumb}}" class="img-responsive animation-fade" data-imageloaded="animation-faded">
-                        </div>
+            <div class="rightside col-xs-12 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+                <div class="mainImageHolder ">
+                    <a data-ng-click="getNextImage()">
+                        <img data-vertcenter data-img-error data-ng-src="//bobpeterson.com/photographer/{{homeModel.selectedImage}}" class="center-block photo imageBig img-responsive animation-fade" data-hereoimageloaded="animation-faded">
                     </a>
                 </div>
+                <div class="spinner"></div>
+                <a class="left carousel-control" role="button" data-ng-click="getPrevImage()">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+
+                <a class="right carousel-control" role="button" data-ng-click="getNextImage()">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+                <div data-thumbscroller id="my-thumbs-list" class="mThumbnailScroller center-block">
+                    <ul class="center-block list-unstyled">
+                        <li ng-repeat="item in homeModel.images" class='pull-left'>
+                            <a data-ng-click="selectImage($index)">
+                                <img img-error data-ng-src="//bobpeterson.com/photographer/{{item.imagethumb}}" class="animation-fade photo center-block" data-imageloaded="animation-faded">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div><!--/row-->
-    </div>><!--/container-->
+        </div>
+    </div>
 </section>

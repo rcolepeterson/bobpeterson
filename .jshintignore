@@ -1,1 +1,4 @@
 /test/spec/test.js
+app/scripts/populate_template_cache.js
+app/scripts/lib/jquery.mThumbnailScroller.js
+app/scripts/lib/**

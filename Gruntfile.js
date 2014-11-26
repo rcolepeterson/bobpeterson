@@ -27,10 +27,6 @@ module.exports = function(grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
-      bower: {
-        files: ['bower.json'],
-        tasks: ['bowerInstall']
-      },
       js: {
         files: ['<%= yeoman.app %>/scripts/**/*.js'],
         tasks: ['newer:jshint:all'],
@@ -49,20 +45,13 @@ module.exports = function(grunt) {
           livereload: true
         }
       },
-      //@todo - how do i grab scss from multiple directories and compile into on main.css file.
-      // compass: {
-      //   files: [
-      //     '<%= yeoman.app %>/styles/{,*/}*.{scss,sass}',
-      //     '<%= yeoman.app %>/scripts/modules/about/styles/about.scss'
-      //   ],
-      //   tasks: ['compass:server', 'autoprefixer']
-      // },
-
       sass: {
-        files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}', '<%= yeoman.app %>/scripts/modules/**/styles/*.{scss,sass}'],
-        tasks: ['sass:dist']
+        options: {
+          livereload: false
+        },
+        files: ['<%= yeoman.app %>/styles/*.{scss,sass}', '<%= yeoman.app %>/scripts/modules/**/styles/*.{scss,sass}'],
+        tasks: ['concat', 'sass:dist']
       },
-
       gruntfile: {
         files: ['Gruntfile.js']
       },
@@ -74,8 +63,7 @@ module.exports = function(grunt) {
           '<%= yeoman.app %>/{,*/}*.html',
           '<%= yeoman.app %>/scripts/modules/**/tpl/*.html',
           '<%= yeoman.app %>/scripts/modules/**/views/*.html',
-          '.tmp/styles/{,*/}*.css',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '.tmp/styles/{,*/}*.css'
         ]
       }
     },
@@ -162,55 +150,21 @@ module.exports = function(grunt) {
       }
     },
 
-    // Automatically inject Bower components into the app
-    bowerInstall: {
-      app: {
-        src: ['<%= yeoman.app %>/index.html'],
-        ignorePath: '<%= yeoman.app %>/'
-      },
-      sass: {
-        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        ignorePath: '<%= yeoman.app %>/bower_components/'
+    concat: {
+      dist: {
+        src: [
+          '<%= yeoman.app %>/styles/*.{scss,sass}', '<%= yeoman.app %>/scripts/modules/**/styles/*.{scss,sass}'
+        ],
+        dest: '<%= yeoman.app %>/styles/built/build.scss',
       }
     },
-
-    // Compiles Sass to CSS and generates necessary files if requested
-    //@todo - how do i grab scss from multiple directories and compile into on main.css file. cpeterson.
-    // compass: {
-    //   options: {
-    //     sassDir: '<%= yeoman.app %>/styles',
-    //     cssDir: '.tmp/styles',
-    //     generatedImagesDir: '.tmp/images/generated',
-    //     imagesDir: '<%= yeoman.app %>/images',
-    //     javascriptsDir: '<%= yeoman.app %>/scripts',
-    //     fontsDir: '<%= yeoman.app %>/styles/fonts',
-    //     importPath: '<%= yeoman.app %>/bower_components',
-    //     httpImagesPath: '/images',
-    //     httpGeneratedImagesPath: '/images/generated',
-    //     httpFontsPath: '/styles/fonts',
-    //     relativeAssets: false,
-    //     assetCacheBuster: false,
-    //     raw: 'Sass::Script::Number.precision = 10\n'
-    //   },
-    //   dist: {
-    //     options: {
-    //       generatedImagesDir: '<%= yeoman.dist %>/images/generated'
-    //     }
-    //   },
-    //   server: {
-    //     options: {
-    //       debugInfo: true
-    //     }
-    //   }
-    // },
-    //
     sass: {
       options: {
         sourceMap: false
       },
       dist: {
         files: {
-          '.tmp/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
+          '.tmp/styles/main.css': '<%= yeoman.app %>/styles/built/build.scss'
         }
       }
     },
@@ -247,7 +201,7 @@ module.exports = function(grunt) {
         }
       },
       main: {
-        src: ['<%= yeoman.app %>/scripts/modules/core/views/**/*.html'],
+        src: ['<%= yeoman.app %>/scripts/modules/core/views/**/*.html', '<%= yeoman.app %>/scripts/modules/about/views/**/*.html'],
         dest: '<%= yeoman.app %>/scripts/populate_template_cache.js'
       }
     },
@@ -364,10 +318,9 @@ module.exports = function(grunt) {
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
             'fonts/*',
-            // views/* html .... these now be coming from the template cache.
-            // see html2js.
-            //'scripts/modules/core/views/*.html',
-            'scripts/modules/core/api/*.json'
+            'scripts/lib/jquery.mThumbnailScroller.css',
+            'scripts/modules/core/api/*.json',
+            'bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*'
           ]
         }, {
           expand: true,
@@ -444,7 +397,6 @@ module.exports = function(grunt) {
 
     grunt.task.run([
       'clean:server',
-      'bowerInstall',
       'concurrent:server',
       'autoprefixer',
       'html2js:main',
@@ -468,7 +420,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'bowerInstall',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',

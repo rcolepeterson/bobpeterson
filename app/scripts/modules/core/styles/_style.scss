@@ -1,20 +1,158 @@
+///////cole///////
 #home {
-    .testOverride {
-        color: #ccc;
+
+    ///////////////////////
+    ///Sidebar/
+    /////////////////////
+    /* Hide for mobile, show later */
+    .sidebar {
+        display: none;
+        z-index: 98;
+        .contact{
+            bottom:120px;
+            position:absolute;
+            small.agent{
+                color: #999;
+            }
+        }
     }
-    .photo {
-        background: white url(/images/ajax-loader.gif) center 20px no-repeat;
-        margin: 0 10px 10px 0;
+    @media (min-width: 768px) {
+        .sidebar {
+            position: fixed;
+            top: 51px;
+            bottom: 0;
+            left: 0;
+            display: block;
+            padding: 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            /* Scrollable contents if viewport is shorter than content. */
+            background-color: #444;
+        }
+    }
+    /* Sidebar navigation */
+    .nav-sidebar {
+        margin-right: -21px;
+        /* 20px padding + 1px border */
+        margin-bottom: 20px;
+        margin-left: -5px;
+        li {
+            margin-bottom: 3px;
+        }
+    }
+    .nav-sidebar > li > a {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    #home > div > div > div.col-sm-3.col-md-2.sidebar > ul > div:nth-child(6) > li > a {
+        color: #444 !important;
+    }
+
+    .sidebar > ul li a {
+        color: #999;
+        &.active{
+            color: #fff;
+        }
+        &:hover{
+             color: #fff;
+        }
+    }
+
+    /////////////////////
+    ///top menu/
+    /////////////////////
+    .navbar.transparent.navbar-inverse .navbar-inner {
+        border-width: 0px;
+        -webkit-box-shadow: 0px 0px;
+        box-shadow: 0px 0px;
+        background-color: rgba(0, 0, 0, 0);
+        background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
+        background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+    .navbar-inner, .navbar-inverse {
+        background: transparent !important;
+        border-color: transparent !important;
+    }
+
+    /////////////////////
+    ///main image module.
+    /////////////////////
+    .mainImageHolder, .btnHolder {
         position: relative;
+    }
+    .thumbMenu {
+        position: fixed;
+        bottom: 0px;
+        right: 0;
+        left: 0;
+        z-index: 99;
+    }
+    img.photo {
+        //background: white url(/images/ajax-loader.gif) center 20px no-repeat;
+        border: 2px solid white !important;
+        margin-right: 5px;
         &.imageBig {
-            background-color: transparent;
-            background-position-x: 50%;
-            background-position-y: 100px;
-            margin: 10px;
+            min-width: 300px;
+            min-height: 200px;
+            border: 5px solid white !important;
+            margin: auto;
             border: 0;
             img {
                 border: 5px solid white;
+                min-width: 300px;
+                min-height: 200px;
             }
         }
     }
 }
+
+/////////////////////
+///bottom menu thumb module
+/////////////////////
+#my-thumbs-list {
+    overflow: auto;
+    height: auto;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    padding: 8px;
+    height: 104px;
+     min-width: 300px;
+     background-color:#000;
+}
+
+#mTS_1_buttonLeft, #mTS_1_buttonRight {
+    width: 36px;
+    height: 42px;
+    line-height: 42px;
+    padding: 6px;
+    background-color: #000 !important;
+}
+
+.mTS-buttons-out .mTSButtonIcon {
+    fill: #fff !important;
+}
+
+/////////////////
+///left and right arrows for main image.
+/////////////////
+.carousel-control {
+    background: transparent !important;
+    .glyphicon.glyphicon-chevron-left, .glyphicon.glyphicon-chevron-right{
+        top:44%;
+    }
+}
+
+
+ .rightside {
+        bottom: 0;
+        top: 0;
+     //   height: auto;
+     //   height: 100%;
+        position: absolute;
+        left: 0;
+        overflow: hidden;
+    }

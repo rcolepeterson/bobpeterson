@@ -6,16 +6,13 @@ var ApplicationConfiguration = (function() {
   // Init module configuration options
   var applicationModuleName = 'myApplication';
   var applicationModuleVendorDependencies = ['ngResource',
-    'ngCookies',
-    'ngAnimate',
     'ngTouch',
-    'ngSanitize',
     'ui.router',
     'ui.bootstrap',
-    'ui.utils',
     'app.directives',
     'app.services',
-    'app.filters'
+    'app.filters',
+    'rt.debounce'
   ];
 
   //Adjust fb id per env. TODO update wih corrct id's. Adjust env string logic.

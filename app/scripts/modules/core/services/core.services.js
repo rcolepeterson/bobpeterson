@@ -22,6 +22,7 @@ angular.module('core').service('imageService', function($http, $q) {
 
     var request = $http({
       method: 'get',
+      cache :true,
       url: serviceUrl,
       params: {
         action: 'get'

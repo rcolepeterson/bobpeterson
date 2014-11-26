@@ -15,7 +15,7 @@ directives.directive('imgError', function() {
   };
 });
 
-directives.directive('imageloaded', function() {
+directives.directive('imageloaded', function($timeout) {
   return {
     restrict: 'A',
 
@@ -23,7 +23,83 @@ directives.directive('imageloaded', function() {
       var cssClass = attrs.imageloaded;
 
       element.bind('load', function() {
+        $timeout(function() {
+          angular.element(element).addClass(cssClass);
+        }, 1000);
+
+      });
+    }
+  };
+});
+
+
+/**
+ * center asset. dependent on GSAP. and debounce.
+ * @param  {[type]} debounce [description]
+ * @return {[type]}          [description]
+ */
+directives.directive('vertcenter', function(debounce) {
+  return {
+    restrict: 'A',
+
+    link: function(scope, element) {
+
+      //create animation time line.
+      var tl = new TimelineMax({
+        paused: false
+      });
+
+      // Creates a function that will only get called once every 2 seconds:
+      var fn = debounce(1000, function() {
+        center();
+      });
+
+      // listen for image loading .. then center.
+      element.bind('load', function() {
+        center();
+      });
+
+      //center asset.
+      var center = function() {
+        var posY = ($(window).height() - element.height()) / 2;
+        var posX = ($(window).width() - element.width()) / 2;
+        var offset = $('#my-thumbs-list').height() * 0.5;
+        tl.staggerTo(element, 0.5, {
+          y: posY - offset
+        }, 0.5);
+      };
+
+      //listen for browser resize.
+      window.addEventListener('resize', fn, false);
+    }
+  };
+});
+
+
+
+
+directives.directive('hereoimageloaded', function() {
+  return {
+    restrict: 'A',
+
+    link: function(scope, element, attrs) {
+      var cssClass = attrs.hereoimageloaded;
+
+      scope.$watch('homeModel.selectedImage', function() {
+        if (scope.homeModel.selectedImage) {
+          angular.element(element).removeClass(cssClass);
+          TweenLite.to($('.spinner'), 0.25, {
+            opacity: 1
+          });
+          // TweenLite.to(ball, 2, {y:0, ease:Bounce.easeIn});
+        }
+      });
+
+      element.bind('load', function() {
         angular.element(element).addClass(cssClass);
+        TweenLite.to($('.spinner'), 0.1, {
+          opacity: 0
+        });
       });
     }
   };
@@ -149,7 +225,7 @@ directives.directive('ddcollapsetext', ['$compile', '$timeout',
  * Initializes an overlay from the overlay service.
  * Note - Used for overlays that need to be more robust the what you get
  * from the dialogueService > displayUserMsg found @ /app/scripts/common/services.js
- * @todo- implement. the overlay service does not exist. 
+ * @todo- implement. the overlay service does not exist.
  *         it does in the HT discover progress and big data. port over cole.
  * @param  {[type]} $compile       [description]
  * @param  {[type]} $http          [description]

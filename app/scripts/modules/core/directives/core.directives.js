@@ -11,11 +11,16 @@
  */
 var directives = angular.module('core.directives', []);
 
-directives.directive('helloWorld', function() {
+directives.directive('thumbscroller', function($timeout) {
   return {
     restrict: 'AE',
-    replace: 'true',
-    template: '<h3>Hello World!!</h3>'
+    link: function(scope, element) {
+      $timeout(function() {
+        element.mThumbnailScroller({
+          axis: 'x', //change to "y" for vertical scroller
+          type:'click-25'
+        });
+      }, 0);
+    }
   };
 });
-
