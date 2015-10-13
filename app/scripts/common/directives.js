@@ -62,9 +62,11 @@ directives.directive('vertcenter', function(debounce) {
       //center asset.
       var center = function() {
 
+        //offset for left side menu.
         var maxW = $(window).width() - 202;
-        var maxH = $(window).height() - 138;
-        var props = calculateAspectRatioFit(width, height, maxW, maxH-88);
+        //offset for top and bottom menus
+        var maxH = $(window).height() - 226;
+        var props = calculateAspectRatioFit(width, height, maxW, maxH);
 
         //resize.
         TweenLite.to(element, 0.25, {
