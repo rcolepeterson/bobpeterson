@@ -1,16 +1,9 @@
-/*global io:false */
+/*global ApplicationConfiguration:false */
 'use strict';
-angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$stateParams', 'imageService', 'dialogueService',
-  function($scope, $rootScope, $stateParams, imageService, dialogueService) {
+angular.module('core').controller('HomeController', ['$scope', '$rootScope','$location', '$stateParams', 'imageService', 'dialogueService',
+  function($scope, $rootScope, $location, $stateParams, imageService, dialogueService) {
 
-
-    $scope.slides = [
-      'http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg',
-      'http://flexslider.woothemes.com/images/kitchen_adventurer_lemon.jpg',
-      'http://flexslider.woothemes.com/images/kitchen_adventurer_donut.jpg',
-      'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
-    ];
-
+    console.log($stateParams);
 
     //Name space the scope.
     $scope.homeModel = {};
@@ -32,7 +25,7 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$s
       $scope.homeModel.curImageNum = n;
       $scope.homeModel.selectedImage = $scope.homeModel.images[$scope.homeModel.curImageNum].image;
 
-    }
+    };
 
     /**
      * User has clicked on a left menu link.
@@ -41,10 +34,11 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$s
      */
     $scope.selectACategory = function(n) {
 
-      $scope.homeModel.curCatNum = n;
-      $scope.homeModel.images = $scope.homeModel.categoryies.category[n].pic;
-      $scope.selectImage(0);
-    }
+      // $scope.homeModel.curCatNum = n;
+      // $scope.homeModel.images = $scope.homeModel.categoryies.category[n].pic;
+      // $scope.selectImage(0);
+      $location.path('/'+$scope.homeModel.categoryies.category[n].categoryName)
+    };
 
     /**
      * listen for dispatch from outside this module. select cat and load 1st image.
@@ -62,7 +56,7 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$s
         curImageNum = 0;
       }
       $scope.selectImage(curImageNum);
-    }
+    };
 
     $scope.getPrevImage = function() {
       curImageNum--;
@@ -70,7 +64,7 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$s
         curImageNum = $scope.homeModel.images.length - 1;
       }
       $scope.selectImage(curImageNum);
-    }
+    };
 
     /**
      * apply the remote data to the local scope.
@@ -79,8 +73,11 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$s
      */
     function applyRemoteData(response) {
       var images = response.data;
-      var catN = $scope.homeModel.curCatNum;
+
       $scope.homeModel.categoryies = images.categoryies;
+      $scope.homeModel.curCatNum = findPost();
+      var catN = $scope.homeModel.curCatNum;
+
       $scope.homeModel.images = images.categoryies.category[catN].pic;
       $scope.homeModel.selectedImage = images.categoryies.category[catN].pic[0].image;
 
@@ -93,9 +90,9 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$s
      * @param  {[type]} msg [description]
      * @return {[type]}     [description]
      */
-    function displayErrorMsg(msg) {
-      dialogueService.displayUserMsg('Something is not good', msg);
-    }
+    // function displayErrorMsg(msg) {
+    //   dialogueService.displayUserMsg('Something is not good', msg);
+    // }
 
     /**
      * Service call back.
@@ -106,15 +103,23 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$s
       //if result === error display it ...
       //displayErrorMsg('ouch ' + ApplicationConfiguration.configSettings.messages.errormsg)
       applyRemoteData(result);
-    }
+    };
 
     /**
-     * Code to grab the diretlink fromt eh url query string.
+     * Code to grab the diretlink fromt the state params
      * @return {[type]} [description]
      */
     var findPost = function() {
-      //console.log('find post. write code to get it!');
-    }
+
+      if ($stateParams) {
+        var clients = $scope.homeModel.categoryies.category;
+        var elementPos = clients.map(function(x) {return x.categoryName}).indexOf($stateParams.clientId);
+        var val = elementPos;
+        if (val !== -1)
+          return val;
+      }
+      return 4;
+    };
 
     //----------------------------------------------------------------service API
 
@@ -128,8 +133,8 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$s
       //   .then(findPost);
 
       imageService.getBobImages()
-        .then(serviceHandler)
-        .then(findPost);
+        .then(serviceHandler);
+      //.then(findPost)
     };
 
     /**
@@ -139,12 +144,4 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$s
 
   }
 
-]).directive('carousel', [function() {
-  return {
-
-  }
-}]).directive('slide', [function() {
-  return {
-
-  }
-}]);
+]);
