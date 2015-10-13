@@ -11,7 +11,7 @@ directives.directive('imgError', function() {
           'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
         $(this).unbind('error', this);
       });
-    }
+    },
   };
 });
 
@@ -28,13 +28,12 @@ directives.directive('imageloaded', function($timeout) {
         }, 1000);
 
       });
-    }
+    },
   };
 });
 
-
 /**
- * center asset. dependent on GSAP. and debounce.
+ * center asset and resize. dependent on GSAP. and debounce.
  * @param  {[type]} debounce [description]
  * @return {[type]}          [description]
  */
@@ -44,39 +43,58 @@ directives.directive('vertcenter', function(debounce) {
 
     link: function(scope, element) {
 
-      //create animation time line.
-      var tl = new TimelineMax({
-        paused: false
-      });
-
       // Creates a function that will only get called once every 2 seconds:
       var fn = debounce(1000, function() {
-        center();
+          center();
       });
+
+      var height;
+      var width;
 
       // listen for image loading .. then center.
       element.bind('load', function() {
+        //define new w and h.
+        height = this.naturalHeight;
+        width = this.naturalWidth;
         center();
       });
 
       //center asset.
       var center = function() {
-        var posY = ($(window).height() - element.height()) / 2;
-        var posX = ($(window).width() - element.width()) / 2;
-        var offset = $('#my-thumbs-list').height() * 0.5;
-        tl.staggerTo(element, 0.5, {
-          y: posY - offset
-        }, 0.5);
+
+        var maxW = $(window).width() - 202;
+        var maxH = $(window).height() - 138;
+        var props = calculateAspectRatioFit(width, height, maxW, maxH-88);
+
+        //resize.
+        TweenLite.to(element, 0.25, {
+          width: props.width,
+          height: props.height,
+          onComplete:doit
+        }, 0);
+
+        //center.
+        function doit(){
+          var elH = parseInt(element.css('height'));
+          var posY = ($(window).height() - elH)/2;
+          TweenLite.to(element, 0.45, {y: posY - 25});
+        }
+      };
+
+      //maintain aspect ratio.
+      var calculateAspectRatioFit = function(srcWidth, srcHeight, maxWidth, maxHeight) {
+        var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+        return {
+          width: srcWidth * ratio,
+          height: srcHeight * ratio,
+        };
       };
 
       //listen for browser resize.
       window.addEventListener('resize', fn, false);
-    }
+    },
   };
 });
-
-
-
 
 directives.directive('hereoimageloaded', function() {
   return {
@@ -89,19 +107,18 @@ directives.directive('hereoimageloaded', function() {
         if (scope.homeModel.selectedImage) {
           angular.element(element).removeClass(cssClass);
           TweenLite.to($('.spinner'), 0.25, {
-            opacity: 1
+            opacity: 1,
           });
-          // TweenLite.to(ball, 2, {y:0, ease:Bounce.easeIn});
         }
       });
 
       element.bind('load', function() {
         angular.element(element).addClass(cssClass);
         TweenLite.to($('.spinner'), 0.1, {
-          opacity: 0
+          opacity: 0,
         });
       });
-    }
+    },
   };
 });
 
@@ -116,7 +133,7 @@ directives.directive('backstretch', function() {
     restrict: 'A',
     link: function(scope, element, attr) {
       $(element).backstretch(attr.backgroundurl);
-    }
+    },
   };
 });
 
@@ -147,7 +164,7 @@ directives.directive('sharefacebook', function() {
           shareTitle, fbDesc, captionFacebook, shareUrl, picture, facebookAppId
         );
       });
-    }
+    },
   };
 });
 
@@ -168,7 +185,7 @@ directives.directive('sharetwitter', function() {
           desc, shareUrl
         );
       });
-    }
+    },
   };
 });
 
@@ -188,6 +205,7 @@ directives.directive('ddcollapsetext', ['$compile', '$timeout',
         scope.toggle = function() {
           scope.collapsed = !scope.collapsed;
         };
+
         $timeout(function() {
           // get the value of the dd-collapse-text attribute
           attrs.$observe('ddcollapsetext', function(maxLength) {
@@ -215,11 +233,10 @@ directives.directive('ddcollapsetext', ['$compile', '$timeout',
             }
           });
         });
-      }
+      },
     };
-  }
+  },
 ]);
-
 
 /**
  * Initializes an overlay from the overlay service.
@@ -242,6 +259,6 @@ directives.directive('overlay', function($compile, $http, overlayService) {
           controller = {};
         overlayService.launch(data, template, controller);
       };
-    }
+    },
   };
 });
