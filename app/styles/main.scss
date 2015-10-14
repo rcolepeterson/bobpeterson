@@ -68,9 +68,17 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
     padding: 0.2em 0;
 }
 
+@mixin Hammersmith {
+  font-family: 'Hammersmith One', sans-serif;
+}
+@mixin Roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
 body {
-    background-color: #272727;
-    font-family: 'Oswald', sans-serif;
+    background-color: #191919;
+  //  font-family: 'Oswald', sans-serif;
+  @include Roboto;
 }
 
 /*

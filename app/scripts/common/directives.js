@@ -45,7 +45,7 @@ directives.directive('vertcenter', function(debounce) {
 
       // Creates a function that will only get called once every 2 seconds:
       var fn = debounce(1000, function() {
-          center();
+        center();
       });
 
       var height;
@@ -65,21 +65,29 @@ directives.directive('vertcenter', function(debounce) {
         //offset for left side menu.
         var maxW = $(window).width() - 202;
         //offset for top and bottom menus
-        var maxH = $(window).height() - 226;
+        var maxH = $(window).height() - 160;
         var props = calculateAspectRatioFit(width, height, maxW, maxH);
 
-        //resize.
-        TweenLite.to(element, 0.25, {
-          width: props.width,
-          height: props.height,
-          onComplete:doit
-        }, 0);
+        if ($(window).width() > 480) {
+
+          //resize.
+          TweenLite.to(element, 0.25, {
+            width: props.width,
+            height: props.height,
+            onComplete: doit
+          }, 0);
+
+        } else {
+          doit();
+        }
 
         //center.
-        function doit(){
+        function doit() {
           var elH = parseInt(element.css('height'));
-          var posY = ($(window).height() - elH)/2;
-          TweenLite.to(element, 0.45, {y: posY - 25});
+          var posY = ($(window).height() - elH) / 2;
+          TweenLite.to(element, 0.45, {
+            y: posY - 55
+          });
         }
       };
 

@@ -68,9 +68,17 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
     padding: 0.2em 0;
 }
 
+@mixin Hammersmith {
+  font-family: 'Hammersmith One', sans-serif;
+}
+@mixin Roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
 body {
-    background-color: #272727;
-    font-family: 'Oswald', sans-serif;
+    background-color: #191919;
+  //  font-family: 'Oswald', sans-serif;
+  @include Roboto;
 }
 
 /*
@@ -166,11 +174,15 @@ a {
         transform: rotate(359deg);
     }
 }
+
 #about{
 	margin-top:60px;
 	color:#ccc;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+
+
 
 ///////cole///////
 #home {
@@ -183,10 +195,19 @@ a {
     display: none;
     z-index: 98;
 
+    .logo{
+      color:#191919;
+      @include Roboto;
+    }
+    h1{
+      font-size: 28px;
+      margin-bottom: 0;
+    }
+
     .contact {
       bottom: 120px;
       position: absolute;
-
+      -webkit-transition: opacity 2s; /* Safari */
       .agent {
         color: #999;
       }
@@ -195,7 +216,7 @@ a {
 
   @media (min-width: 768px) {
     .sidebar {
-      background-color: #444;
+      background-color: #363535;
       bottom: 0;
       top: 0;
       position: fixed;
@@ -211,7 +232,7 @@ a {
     margin-right: -21px;
     /* 20px padding + 1px border */
     margin-bottom: 20px;
-    margin-left: -5px;
+    //margin-left: -5px;
     li {
       margin-bottom: 3px;
     }
@@ -298,11 +319,11 @@ a {
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: black;
+  background-color: #272727;
   padding: 8px;
   height: 104px;
   min-width: 300px;
-  background-color: #000;
+
 }
 #mTS_1_buttonLeft,
 #mTS_1_buttonRight {
@@ -344,4 +365,31 @@ a {
   body > header {
     display: none !important;
   }
+}
+
+
+/* make keyframes that tell the start state and the end state of our object */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+  opacity:0;  /* make things invisible upon start */
+  -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fade-in.one {
+  -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  animation-delay: 0.7s;
 }
