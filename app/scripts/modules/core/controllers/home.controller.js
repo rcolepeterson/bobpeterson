@@ -1,9 +1,7 @@
 /*global ApplicationConfiguration:false */
 'use strict';
-angular.module('core').controller('HomeController', ['$scope', '$rootScope','$location', '$stateParams', 'imageService', 'dialogueService',
+angular.module('core').controller('HomeController', ['$scope', '$rootScope','$location','$stateParams', 'imageService', 'dialogueService',
   function($scope, $rootScope, $location, $stateParams, imageService, dialogueService) {
-
-    console.log($stateParams);
 
     //Name space the scope.
     $scope.homeModel = {};
@@ -33,11 +31,7 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope','$lo
      * @return {[type]}   [description]
      */
     $scope.selectACategory = function(n) {
-
-      // $scope.homeModel.curCatNum = n;
-      // $scope.homeModel.images = $scope.homeModel.categoryies.category[n].pic;
-      // $scope.selectImage(0);
-      $location.path('/'+$scope.homeModel.categoryies.category[n].categoryName)
+       $location.path('/'+$scope.homeModel.categoryies.category[n].id);
     };
 
     /**
@@ -113,10 +107,11 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope','$lo
 
       if ($stateParams) {
         var clients = $scope.homeModel.categoryies.category;
-        var elementPos = clients.map(function(x) {return x.categoryName}).indexOf($stateParams.clientId);
+        var elementPos = clients.map(function(x) {return x.id;}).indexOf($stateParams.id);
         var val = elementPos;
-        if (val !== -1)
+        if (val !== -1){
           return val;
+        }
       }
       return 4;
     };
@@ -128,15 +123,14 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope','$lo
      * @return {[type]} [description]
      */
     $scope.getImages = function() {
-      // imageService.getImages()
-      //   .then(serviceHandler)
+       imageService.getImages()
+         .then(serviceHandler);
       //   .then(findPost);
 
-      imageService.getBobImages()
-        .then(serviceHandler);
+      // imageService.getBobImages()
+      //   .then(serviceHandler);
       //.then(findPost)
     };
-
     /**
      * get the intial objects.
      */

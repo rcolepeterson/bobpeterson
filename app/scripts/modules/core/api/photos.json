@@ -15,7 +15,7 @@
         "category": [
             {
                 "categoryName": "AAA",
-                "id": "/AAA/",
+                "id": "AAA",
                 "pic": [
                     {
                         "image": "images/AAA/AAA01.jpg",
@@ -78,7 +78,7 @@
             },
             {
                 "categoryName": "DIADORA",
-                "id": "/DIADORA/",
+                "id": "DIADORA",
                 "pic": [
                     {
                         "image": "images/DIADORA/DIADORA01.jpg",
@@ -96,7 +96,7 @@
             },
             {
                 "categoryName": "GIANT BIKE",
-                "id": "/GIANTBIKE/",
+                "id": "GIANTBIKE",
                 "pic": [
                     {
                         "image": "images/GIANT BIKE/GIANT01.jpg",
@@ -118,7 +118,7 @@
             },
             {
                 "categoryName": "LIFE MAGAZINE",
-                "id": "/LIFEMAGAZINE/",
+                "id": "LIFEMAGAZINE",
                 "pic": [
                     {
                         "image": "images/life web jpg/life01.jpg",
@@ -258,7 +258,7 @@
             {
                 "categoryName": "NIKE",
                 "defaultCategory": "true",
-                "id": "/NIKE/",
+                "id": "NIKE",
                 "pic": [
                     {
                         "image": "images/NIKE/NIKE01.jpg",
@@ -348,7 +348,7 @@
             },
             {
                 "categoryName": "PHYSIO CONTROL",
-                "id": "/PHYSIOCONTROL/",
+                "id": "PHYSIOCONTROL",
                 "pic": [
                     {
                         "image": "images/PHYSIO CONTROL/PHYSIO CONTROL 01.jpg",
@@ -394,7 +394,7 @@
             },
             {
                 "categoryName": "REAL CHANGE",
-                "id": "/REALCHANGE/",
+                "id": "REALCHANGE",
                 "pic": [
                     {
                         "image": "images/REAL CHANGE/REAL CHANGE 01.jpg",
@@ -416,7 +416,7 @@
             },
             {
                 "categoryName": "SIMS",
-                "id": "/SIMS/",
+                "id": "SIMS",
                 "pic": [
                     {
                         "image": "images/SIMS/SIMS 01.jpg",
@@ -434,7 +434,7 @@
             },
             {
                 "categoryName": "WASH ST LOTTERY",
-                "id": "/WASHSTLOTTERY/",
+                "id": "WASHSTLOTTERY",
                 "pic": [
                     {
                         "image": "images/WASH ST LOTTERY/LOTTO 01.jpg",
@@ -468,7 +468,7 @@
             },
             {
                 "categoryName": "Z CLOTHES",
-                "id": "/ZCLOTHES/",
+                "id": "ZCLOTHES",
                 "pic": [
                     {
                         "image": "images/Z CLOTHES/Z CLOTHES 01.jpg",
