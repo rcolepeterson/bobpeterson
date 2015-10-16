@@ -202,7 +202,7 @@ a {
     @include Roboto;
   }
   h1{
-    font-size: 28px;
+    font-size: 22px;
     margin-bottom: 0;
   }
 
@@ -250,9 +250,7 @@ a {
   padding-right: 20px;
   padding-left: 20px;
 }
-#home > div > div > div.col-sm-3.col-md-2.sidebar > ul > div:nth-child(6) > li > a {
-  color: #444 !important;
-}
+
 .sidebar > ul li a {
   color: #999;
   &.active {
