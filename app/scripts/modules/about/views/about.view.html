@@ -1,24 +1,46 @@
-<section data-ng-controller="AboutController">
-    <div id="about" class="container">
-        <div class="blog-header">
-            <h1 class="blog-title">Bob Peterson Photographer</h1>
-            <p class="lead blog-description">He was a big man, but he moved like a cat.</p>
+<section data-ng-controller="AboutController" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <div class="logo">
+          <h1>Bob Peterson</h1>
+          <p>PHOTOGRAPHER</P>
         </div>
-        <div class="row">
-            <div class="col-sm-8 blog-main">
-                <div class="blog-post">
-                    <div class="paragraphs">
-                        <img class="img-responsive" style="width:200px;" src="http://3.bp.blogspot.com/-7NGLsNrpnLo/UEobyKZAKWI/AAAAAAAABkQ/Ok3pP-dWO6g/s1600/Bob+Peterson.jpg" />
-                    </div>
-                    <br>
-                    <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                    <hr>
-                    <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-                    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-                    <h2>Heading</h2>
-                    <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                </div>
-            </div>
+        <div class="row">&nbsp;</div>
+        <ul class="nav nav-sidebar">
+          <div ng-repeat="item in homeModel.categoryies.category">
+            <li><a data-ng-click="selectACategory($index)" ng-class="{active: $index=== homeModel.curCatNum}">{{item.categoryName}}</a>
+            </li>
+          </div>
+          <div class="row">&nbsp;</div>
+          <div class="row">&nbsp;</div>
+          <div class="contact">
+            <a href="mailto:bobpet@comcast.net">
+              <small>Contact Bob Peterson </small>
+            </a>
+            <br>
+            <small class="agent">Represented by Frank Meo
+              <br>212.643.7428</small>
+          </div>
+        </ul>
+        <div class="row">&nbsp;</div>
+        <div class="row">&nbsp;</div>
+        <div class="social">
+          <a href="#" target="_blank">
+            <i class="fa fa-twitter-square fa-2x"></i>
+          </a>
+
+          <a href="#" target="_blank">
+            <i class="fa fa-facebook-square fa-2x"></i>
+          </a>
         </div>
+      </div>
+      <div class="rightside col-xs-12 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+        <div class="row">&nbsp;</div>
+        <div class="row">&nbsp;</div>
+        <h1>About:</h1>
+        <p>This is where stuff would go</p>
+      </div>
     </div>
+  </div>
 </section>

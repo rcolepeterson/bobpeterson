@@ -75,10 +75,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
   font-family: 'Roboto', sans-serif;
 }
 
+@mixin fut {
+  font-family: 'PT Sans', sans-serif;
+}
+
 body {
     background-color: #191919;
   //  font-family: 'Oswald', sans-serif;
-  @include Roboto;
+  //@include Roboto;
 }
 
 /*
