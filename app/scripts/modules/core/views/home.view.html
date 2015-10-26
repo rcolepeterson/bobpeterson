@@ -3,8 +3,9 @@
     <div class="row">
       <div class="col-sm-3 col-md-2 sidebar">
         <div class="logo">
-          <h1>Bob Peterson</h1>
-          <p>PHOTOGRAPHER</P>
+          <a ui-sref="home" class=""><h1>Bob Peterson</h1></a>
+          <!-- <h1 class="last-name">Peterson</h1> -->
+          <p>photographer</P>
         </div>
         <div class="row">&nbsp;</div>
         <!-- <a ui-sref="about"><h4>About</h4</a> -->
@@ -25,8 +26,7 @@
               <br>212.643.7428</small>
           </div>
         </ul>
-        <div class="row">&nbsp;</div>
-        <div class="row">&nbsp;</div>
+
         <div class="social">
           <a ui-sref="about">
             <i class="fa fa-twitter-square fa-2x"></i>
@@ -54,7 +54,7 @@
           <span class="sr-only">Next</span>
         </a>
 
-        <div data-thumbscroller id="my-thumbs-list" class="mThumbnailScroller center-block">
+        <div data-thumbscroller id="my-thumbs-list" class="center-block">
           <ul class="center-block list-unstyled">
             <li ng-repeat="item in homeModel.images" class='pull-left'>
               <a data-ng-click="selectImage($index)">

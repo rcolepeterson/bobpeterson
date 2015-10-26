@@ -79,6 +79,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
   font-family: 'PT Sans', sans-serif;
 }
 
+@mixin droid {
+  font-family: 'Droid Serif', serif;
+}
+
 body {
     background-color: #191919;
   //  font-family: 'Oswald', sans-serif;
@@ -196,20 +200,25 @@ a {
 .sidebar {
   display: none;
   z-index: 98;
-
+  border-right: 1px solid black;
   .logo{
-    color:#fff;
+    color: #fff;
     @include Roboto;
   }
+
   h1{
-    font-size: 22px;
     margin-bottom: 0;
+    font-size: 28px;
+    color: #fff;
+  }
+
+  p{
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #ccc;
   }
 
   .contact {
-   //bottom: 120px;
-   //position: absolute;
-
     .agent {
       color: #999;
     }
@@ -239,9 +248,7 @@ a {
 .nav-sidebar {
   overflow: hidden;
   margin-right: -21px;
-  /* 20px padding + 1px border */
   margin-bottom: 20px;
-  //margin-left: -5px;
   li {
     margin-bottom: 3px;
   }
@@ -260,12 +267,6 @@ a {
     color: #fff;
   }
 }
-
-
-
-///////cole///////
-
-
 
   /////////////////////
   ///top menu/
@@ -340,7 +341,7 @@ a {
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: #272727;
+  // background-color: #272727;
   padding: 8px;
   height: 104px;
   min-width: 300px;

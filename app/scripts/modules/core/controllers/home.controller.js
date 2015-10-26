@@ -1,6 +1,6 @@
 /*global ApplicationConfiguration:false */
 'use strict';
-angular.module('core').controller('HomeController', ['$scope', '$rootScope','$location','$stateParams', 'imageService', 'dialogueService',
+angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$location', '$stateParams', 'imageService', 'dialogueService',
   function($scope, $rootScope, $location, $stateParams, imageService, dialogueService) {
 
     //Name space the scope.
@@ -31,7 +31,7 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope','$lo
      * @return {[type]}   [description]
      */
     $scope.selectACategory = function(n) {
-       $location.path('/'+$scope.homeModel.categoryies.category[n].id);
+      $location.path('/' + $scope.homeModel.categoryies.category[n].id);
     };
 
     /**
@@ -49,6 +49,7 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope','$lo
       if (curImageNum === $scope.homeModel.images.length) {
         curImageNum = 0;
       }
+
       $scope.selectImage(curImageNum);
     };
 
@@ -57,6 +58,7 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope','$lo
       if (curImageNum === -1) {
         curImageNum = $scope.homeModel.images.length - 1;
       }
+
       $scope.selectImage(curImageNum);
     };
 
@@ -84,6 +86,7 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope','$lo
      * @param  {[type]} msg [description]
      * @return {[type]}     [description]
      */
+
     // function displayErrorMsg(msg) {
     //   dialogueService.displayUserMsg('Something is not good', msg);
     // }
@@ -109,10 +112,11 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope','$lo
         var clients = $scope.homeModel.categoryies.category;
         var elementPos = clients.map(function(x) {return x.id;}).indexOf($stateParams.id);
         var val = elementPos;
-        if (val !== -1){
+        if (val !== -1) {
           return val;
         }
       }
+
       return 4;
     };
 
@@ -123,8 +127,9 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope','$lo
      * @return {[type]} [description]
      */
     $scope.getImages = function() {
-       imageService.getImages()
-         .then(serviceHandler);
+      imageService.getImages()
+        .then(serviceHandler);
+
       //   .then(findPost);
 
       // imageService.getBobImages()
@@ -136,6 +141,6 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope','$lo
      */
     $scope.getImages(ApplicationConfiguration.configSettings.serviceGetImages);
 
-  }
+  },
 
 ]);
