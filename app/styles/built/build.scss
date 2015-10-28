@@ -270,7 +270,11 @@ a {
   ///top menu/
   /////////////////////
 
-
+// #categories {
+//   li {
+//     margin-left:18px;
+//   }
+// }
 
   // .navbar.transparent.navbar-inverse .navbar-inner {
   //   border-width: 0;
@@ -369,9 +373,6 @@ a {
 .rightside {
   bottom: 0;
   top: 0;
-
-  //   height: auto;
-  //   height: 100%;
   position: absolute;
   left: 0;
   overflow: hidden;
@@ -381,10 +382,4 @@ a {
   body > header {
     display: none !important;
   }
-}
-
-.social-nav{
-  position: absolute;
-  right: 20px;
-  top: 158px;
 }
