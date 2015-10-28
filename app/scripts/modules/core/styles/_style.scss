@@ -146,22 +146,21 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  // background-color: #272727;
+  //background-color: #fff;
   padding: 8px;
   height: 104px;
   min-width: 300px;
 
 }
-#mTS_1_buttonLeft,
-#mTS_1_buttonRight {
-  width: 36px;
-  height: 42px;
-  line-height: 42px;
-  padding: 6px;
-  background-color: #000 !important;
+.mTSButton {
+  width: 36px !important;
+  height: 42px !important;
+  line-height: 42px !important;
+  padding: 6px !important;
+  // background-color: #000 !important;
 }
 .mTS-buttons-out .mTSButtonIcon {
-  fill: #fff !important;
+  // fill: #fff !important;
 }
 
 /////////////////
