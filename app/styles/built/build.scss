@@ -85,6 +85,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 
 body {
     background-color: #191919;
+    @include Roboto;
 }
 
 /*
@@ -191,6 +192,20 @@ a {
 	//font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.removeAll{
+  width:100% !important;
+  margin:0;
+}
+
+.hide-side-bar{
+  left: 8px;
+  top: 20px;
+  color: #ccc;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+
 ///////////////////////
 ///Sidebar/
 /////////////////////
@@ -199,21 +214,27 @@ a {
   display: none;
   z-index: 98;
   border-right: 1px solid black;
+
+
+
+
+
   .logo{
-    color: #fff;
+    color:#191919;
     @include Roboto;
+    padding-top:11px;
   }
 
   h1{
     margin-bottom: 0;
-    font-size: 28px;
-    color: #fff;
+    font-size: 26px;
+  color: #191919;
   }
 
   p{
     font-size: 14px;
     letter-spacing: 1px;
-    color: #ccc;
+    color: #191919;
   }
 
   .contact {
@@ -231,7 +252,7 @@ a {
 
 @media (min-width: 768px) {
   .sidebar {
-    background-color: #363535;
+    background-color: #444;
     bottom: 0;
     top: 0;
     position: fixed;
@@ -382,4 +403,277 @@ a {
   body > header {
     display: none !important;
   }
+}
+
+
+/*--- Navigation styles  ---*/
+
+header{
+  position: relative;
+  z-index: 999999;
+}
+
+#site-nav .company-logo {
+  padding-top: 0px;
+  padding-bottom: 15px;
+  float: left;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+#site-nav .company-logo img {
+  text-align: left;
+}
+#site-nav .navbar-nav {
+  display: block;
+  float: none;
+}
+#site-nav .navbar-inverse {
+  background-color: transparent;
+  border-color: transparent;
+  text-align: center;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+}
+#site-nav .nav > li > a {
+  line-height: 1.6em;
+  text-decoration: none;
+  font-style: normal;
+}
+#site-nav .navbar-inverse .navbar-nav>li>a {
+  color: #8f8e8e;
+  font-weight: 400;
+  font-size: 16px;
+}
+#site-nav .navbar-inverse .navbar-nav>li>a:hover {
+  color: #022169;
+  background-color: transparent;
+}
+#site-nav .navbar-inverse .navbar-nav>li>a:hover,
+#site-nav .navbar-inverse .navbar-nav>li>a:focus,
+#site-nav .navbar-inverse .navbar-nav>.open>a,
+#site-nav .navbar-inverse .navbar-nav>.open>a:hover,
+#site-nav .navbar-inverse .navbar-nav>.open>a:focus {
+  background-color: transparent;
+  text-decoration: none;
+  color: #022169;
+}
+#site-nav .navbar {
+  margin-bottom: 0px;
+}
+#site-nav {
+  position: relative;
+  border: 0;
+  background-color: black;
+  background-color: rgba(35, 35, 35, 1);
+}
+#site-nav .navbar.navbar-fixed-top {
+  margin-top: 0px;
+  box-shadow: rgba(0, 0, 0, 1.0) 0px 2px 2px;
+}
+#site-nav .navbar-nav > li {
+  float: none;
+  display: inline-block;
+}
+#site-nav .navbar-toggle {
+  float: right;
+  text-align: right;
+  border: 0px;
+  margin-right: 0px;
+  // margin-top: 38px;
+}
+#site-nav .navbar-inverse .navbar-toggle:hover,
+#site-nav .navbar-inverse .navbar-toggle:focus {
+  background: none;
+}
+#site-nav .navbar-nav > li > .dropdown-menu {
+  border-radius: 0px;
+}
+#site-nav .dropdown-menu > li > a {
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.8em;
+}
+#site-nav .dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  text-decoration: none;
+  background-color: #f2f2f2;
+}
+#site-nav .company-logo {
+  text-align: left;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+#site-nav .company-logo a {
+  color: #022169;
+  font-size: 16px;
+}
+#site-nav .company-logo a:hover {
+  text-decoration: none;
+}
+#site-nav .company-logo span {
+  text-align: left;
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+#site-nav .navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #000;
+}
+/*--- Responsive Styles ---*/
+
+@media (max-width: 767px) {
+  #site-nav .navbar-nav {
+    margin: 0;
+  }
+  #site-nav .navbar-nav {
+    display: block;
+    width: 100%;
+    float: left;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  #site-nav .navbar-nav > li {
+    float: none;
+    display: inline-block;
+    //width: 100%;
+  }
+  #site-nav .navbar-collapse {
+    padding: 0px;
+  }
+  #site-nav .navbar-inverse .navbar-nav > li > a {} #site-nav .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+    text-decoration: none;
+  }
+  #site-nav .navbar-inverse .navbar-nav .open .dropdown-menu>li>a:hover,
+  #site-nav .navbar-inverse .navbar-nav .open .dropdown-menu>li>a:focus {
+    color: #022169;
+    text-decoration: none;
+    background-color: #f2f2f2;
+  }
+  #site-nav .navbar-inverse .navbar-nav > li > a:hover {
+    background-color: #4b4b4b;
+    background: none;
+    text-decoration: none;
+  }
+  #site-nav .navbar-inverse .navbar-collapse,
+  #site-nav .navbar-inverse .navbar-form {
+    border: 0px;
+  }
+  #site-nav .company-logo {
+    padding-bottom: 25px;
+  }
+}
+/* ==========================================================================
+    CUSTOM
+========================================================================== */
+
+#site-nav,
+#footer {
+  // background-color: #022169;
+}
+#site-nav .company-logo {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 25%;
+}
+#site-nav .nav.navbar-nav {
+  margin-top: 12px;
+}
+#site-nav .navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+  font-weight: lighter;
+}
+#site-nav .navbar-inverse .navbar-nav > li > a:hover {
+  color: #022169;
+}
+#site-nav .navbar-inverse .navbar-nav > li.link > a:hover,
+#site-nav .navbar-inverse .navbar-nav > li.link > a:focus,
+#site-nav .navbar-inverse .navbar-nav > .open > a,
+#site-nav .navbar-inverse .navbar-nav > .open > a:hover,
+#site-nav .navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: #022169;
+  color: #fff;
+}
+#site-nav .company-logo img {
+  width: 100%;
+}
+#site-nav .fa.fa-circle.fa-stack-2x {
+  color: #fff;
+}
+#site-nav .insta a {
+  padding-right: 5px !important;
+}
+#site-nav .linkedin a {
+  padding-left: 5px !important;
+  padding-right: 0px !important;
+}
+#site-nav .fa-inverse {
+  color: #022169;
+}
+#site-nav .navbar-inverse .navbar-nav > li > a:hover {
+  color: #fff;
+}
+#site-nav .nav.navbar-nav li a {
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: left;
+}
+#site-nav .dropdown-menu.navmenu-nav li a:hover {
+  border-width: 0;
+}
+#site-nav .navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+@media screen and (max-width: 991px) {
+  #site-nav .company-logo {
+    width: 100%;
+    margin: 0 auto;
+    //text-align: center;
+    margin-top: 17px;
+  }
+  #site-nav .company-logo img {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #site-nav .company-logo img {
+    width: 265px;
+  }
+  #site-nav .company-logo {
+    width: 80%;
+    text-align: left;
+  }
+}
+#site-nav .navbar-toggle {
+  border: none;
+  background: transparent !important;
+}
+#site-nav .navbar-toggle .icon-bar {
+  width: 22px;
+  transition: all 0.2s;
+}
+#site-nav .navbar-toggle .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+#site-nav .navbar-toggle .middle-bar {
+  opacity: 0;
+}
+#site-nav .navbar-toggle .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+#site-nav .navbar-toggle.collapsed .top-bar {
+  transform: rotate(0);
+}
+#site-nav .navbar-toggle.collapsed .middle-bar {
+  opacity: 1;
+}
+#site-nav .navbar-toggle.collapsed .bottom-bar {
+  transform: rotate(0);
+}
+
+.navbar-brand {
+  font-size: 17px;
 }

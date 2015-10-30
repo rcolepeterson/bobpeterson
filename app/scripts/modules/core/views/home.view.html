@@ -1,12 +1,13 @@
 <section data-ng-controller="HomeController" id="home">
-  <div class="container">
+  <div class="container-fluid">
+    <span data-ng-click="hideshowsidebar()" class="hidden-xs hide-side-bar glyphicon glyphicon-circle-arrow-left"></span>
     <div class="row">
       <div class="col-sm-3 col-md-2 sidebar">
         <div class="logo">
           <a ui-sref="home" class=""><h1>Bob Peterson</h1></a>
-          <!-- <h1 class="last-name">Peterson</h1> -->
           <p>photographer</P>
         </div>
+
         <div class="row">&nbsp;</div>
         <!-- <a ui-sref="about"><h4>About</h4</a> -->
         <div class="row">&nbsp;</div>
@@ -19,7 +20,7 @@
           <div class="row">&nbsp;</div>
           <div class="contact">
             <a href="mailto:bobpet@comcast.net">
-              <small>Contact Bob Peterson </small>
+              Contact Bob Peterson
             </a>
             <br>
             <small class="agent">Represented by Frank Meo
@@ -31,7 +32,6 @@
           <a ui-sref="about">
             <i class="fa fa-twitter-square fa-2x"></i>
           </a>
-
           <a ui-sref="about">
             <i class="fa fa-facebook-square fa-2x"></i>
           </a>

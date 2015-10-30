@@ -25,6 +25,32 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$l
 
     };
 
+    $scope.hideshowsidebar = function(){
+      var pos = $(".sidebar")[0]._gsTransform;
+      var dist = $(".sidebar").width() - 0;
+      //console.log(pos.x)
+      var ease = 'Quad.easeOut';
+      var tweenProps = {width:'83.33333%', marginLeft:'16.66667%',delay:0};
+      if ( pos && pos.x < 0 ){
+        //close
+        TweenLite.to($(".sidebar"), .35, {x:0, ease:ease, delay:.35});
+        TweenLite.to($(".rightside"), .35, tweenProps, 1);
+        TweenLite.to($(".hide-side-bar"), .35, {rotation:0, ease:ease});
+        // TweenLite.to($("#my-thumbs-list"), .35, {x:0, delay:0});
+        return;
+      }
+
+  //TweenLite.to($(".sidebar"), .35, {width:'100%'});
+
+      //open
+      TweenLite.to($(".hide-side-bar"), .35, {rotation:180, ease:ease});
+      // TweenLite.to($("#my-thumbs-list"), .35, {x:80, delay:0});
+
+      TweenLite.to($(".sidebar"), .35, {x:-(280), ease:ease});
+      TweenLite.to($(".rightside"), .35, {width:'100%', margin:0, delay:.35});
+
+    }
+
     /**
      * User has clicked on a left menu link.
      * @param  {[type]} n [description]

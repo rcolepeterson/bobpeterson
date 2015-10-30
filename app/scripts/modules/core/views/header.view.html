@@ -1,5 +1,45 @@
 <div data-ng-controller="HeaderController">
-  <div class="navbar transparent navbar-inverse navbar-fixed-top" role="navigation">
+  <section id="site-nav">
+  <div class="container">
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="">
+        <a ui-sref="home" class="navbar-brand">Bob Peterson Photographer</a>
+      </div>
+      <!--/.logo -->
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span>  <span class="icon-bar top-bar"></span>  <span class="icon-bar middle-bar"></span>  <span class="icon-bar bottom-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse fullwidth" id="navbar-main-collapse">
+        <ul class="nav navbar-nav">
+          <li class="link" ng-repeat="item in headerModel.categoryies.category">
+            <a data-ng-click="selectACategory($index)">{{item.categoryName}}</a>
+          </li>
+          <li class="insta">
+            <a href=http://www.instagram.com><span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+              </a>
+          </li>
+          <li class="linkedin"><a href=http://linkedin.com><span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook-square fa-stack-1x fa-inverse"></i>
+                  </span>
+              </a>
+
+          </li>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <!-- /.col -->
+  </div>
+  <!-- /.container -->
+</section>
+
+
+
+  <!-- <div class="navbar transparent navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -12,10 +52,7 @@
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <!-- <li ui-sref-active="active"><a ui-sref="home">Home</a>
-          </li>
-          <li ui-sref-active="active"><a ui-sref="about">About</a>
-          </li> -->
+
           <div id="categories" ng-hide="doHideCategories">
             <div class="visible-xs">
               <br>
@@ -44,7 +81,7 @@
           </div>
         </ul>
       </div>
-      <!--/.nav-collapse -->
+
     </div>
-  </div>
+  </div> -->
 </div>
