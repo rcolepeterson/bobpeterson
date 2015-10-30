@@ -192,19 +192,17 @@ a {
 	//font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.removeAll{
-  width:100% !important;
-  margin:0;
+.removeAll {
+  width: 100% !important;
+  margin: 0;
 }
-
-.hide-side-bar{
+.hide-side-bar {
   left: 8px;
   top: 20px;
   color: #ccc;
   cursor: pointer;
   z-index: 99999;
 }
-
 
 ///////////////////////
 ///Sidebar/
@@ -214,42 +212,32 @@ a {
   display: none;
   z-index: 98;
   border-right: 1px solid black;
-
-
-
-
-
-  .logo{
-    color:#191919;
+  .logo {
+    color: #191919;
     @include Roboto;
-    padding-top:11px;
+    padding-top: 11px;
   }
-
-  h1{
+  h1 {
     margin-bottom: 0;
     font-size: 26px;
-  color: #191919;
+    color: #191919;
   }
-
-  p{
+  p {
     font-size: 14px;
     letter-spacing: 1px;
     color: #191919;
   }
-
   .contact {
     .agent {
       color: #999;
     }
   }
-
-  .social{
-    a{
-      margin-right:4px;
+  .social {
+    a {
+      margin-right: 4px;
     }
   }
 }
-
 @media (min-width: 768px) {
   .sidebar {
     background-color: #444;
@@ -276,7 +264,6 @@ a {
   padding-right: 20px;
   padding-left: 20px;
 }
-
 .sidebar > ul li a {
   color: #999;
   &.active {
@@ -287,72 +274,66 @@ a {
   }
 }
 
-  /////////////////////
-  ///top menu/
-  /////////////////////
-
+/////////////////////
+///top menu/
+/////////////////////
 // #categories {
 //   li {
 //     margin-left:18px;
 //   }
 // }
+// .navbar.transparent.navbar-inverse .navbar-inner {
+//   border-width: 0;
+//   -webkit-box-shadow: 0 0;
+//   box-shadow: 0 0;
+//   background-color: rgba(0, 0, 0, 0);
+//   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
+//   background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+//   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+//
+// }
+// .navbar-inner,
+// .navbar-inverse {
+//   background: transparent !important;
+//   border-color: transparent !important;
+// }
+.navbar-inverse .navbar-toggle {
+  border-color: transparent;
+}
 
-  // .navbar.transparent.navbar-inverse .navbar-inner {
-  //   border-width: 0;
-  //   -webkit-box-shadow: 0 0;
-  //   box-shadow: 0 0;
-  //   background-color: rgba(0, 0, 0, 0);
-  //   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
-  //   background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
-  //   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
-  //
-  // }
-  // .navbar-inner,
-  // .navbar-inverse {
-  //   background: transparent !important;
-  //   border-color: transparent !important;
-  // }
+/////////////////////
+///main image module.
+/////////////////////
+.mainImageHolder,
+.btnHolder {
+  position: relative;
+}
+.thumbMenu {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 99;
+}
+img.photo {
 
+  //background: white url(/images/ajax-loader.gif) center 20px no-repeat;
+  border: 2px solid white !important;
+  margin-right: 5px;
+  &.imageBig {
 
-  .navbar-inverse .navbar-toggle {
-      border-color: transparent;
-  }
-
-
-  /////////////////////
-  ///main image module.
-  /////////////////////
-  .mainImageHolder,
-  .btnHolder {
-    position: relative;
-  }
-  .thumbMenu {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: 99;
-  }
-  img.photo {
-
-    //background: white url(/images/ajax-loader.gif) center 20px no-repeat;
-    border: 2px solid white !important;
-    margin-right: 5px;
-    &.imageBig {
-
-      //min-width: 300px;
-      //min-height: 200px;
-      border: 5px solid white !important;
-      margin: auto;
-      border: 0;
-      img {
-        border: 5px solid white;
-        min-width: 300px;
-        min-height: 200px;
-      }
+    //min-width: 300px;
+    //min-height: 200px;
+    border: 5px solid white !important;
+    margin: auto;
+    border: 0;
+    img {
+      border: 5px solid white;
+      min-width: 300px;
+      min-height: 200px;
     }
   }
-
+}
 
 /////////////////////
 ///bottom menu thumb module
@@ -364,20 +345,22 @@ a {
   position: absolute;
   bottom: 0;
   left: 0;
+
   //background-color: #fff;
   padding: 8px;
   height: 104px;
   min-width: 300px;
-
 }
 .mTSButton {
   width: 36px !important;
   height: 42px !important;
   line-height: 42px !important;
   padding: 6px !important;
+
   // background-color: #000 !important;
 }
 .mTS-buttons-out .mTSButtonIcon {
+
   // fill: #fff !important;
 }
 
@@ -398,23 +381,19 @@ a {
   left: 0;
   overflow: hidden;
 }
-
 @media (min-width: 768px) {
   body > header {
     display: none !important;
   }
 }
 
-
 /*--- Navigation styles  ---*/
-
-header{
+header {
   position: relative;
   z-index: 999999;
 }
-
 #site-nav .company-logo {
-  padding-top: 0px;
+  padding-top: 0;
   padding-bottom: 15px;
   float: left;
   margin-bottom: 5px;
@@ -432,7 +411,7 @@ header{
   border-color: transparent;
   text-align: center;
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+  box-shadow: rgba(0, 0, 0, 0) 0 0 0;
 }
 #site-nav .nav > li > a {
   line-height: 1.6em;
@@ -458,7 +437,7 @@ header{
   color: #022169;
 }
 #site-nav .navbar {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 #site-nav {
   position: relative;
@@ -467,8 +446,8 @@ header{
   background-color: rgba(35, 35, 35, 1);
 }
 #site-nav .navbar.navbar-fixed-top {
-  margin-top: 0px;
-  box-shadow: rgba(0, 0, 0, 1.0) 0px 2px 2px;
+  margin-top: 0;
+  box-shadow: rgba(0, 0, 0, 1.0) 0 2px 2px;
 }
 #site-nav .navbar-nav > li {
   float: none;
@@ -477,8 +456,9 @@ header{
 #site-nav .navbar-toggle {
   float: right;
   text-align: right;
-  border: 0px;
-  margin-right: 0px;
+  border: 0;
+  margin-right: 0;
+
   // margin-top: 38px;
 }
 #site-nav .navbar-inverse .navbar-toggle:hover,
@@ -486,7 +466,7 @@ header{
   background: none;
 }
 #site-nav .navbar-nav > li > .dropdown-menu {
-  border-radius: 0px;
+  border-radius: 0;
 }
 #site-nav .dropdown-menu > li > a {
   text-align: left;
@@ -498,12 +478,12 @@ header{
   text-decoration: none;
   background-color: #f2f2f2;
 }
-#site-nav .company-logo {
-  text-align: left;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
-}
+// #site-nav .company-logo {
+//   text-align: left;
+//   font-family: 'Yanone Kaffeesatz', sans-serif;
+//   padding-bottom: 0;
+//   margin-bottom: 0;
+// }
 #site-nav .company-logo a {
   color: #022169;
   font-size: 16px;
@@ -520,7 +500,6 @@ header{
   background-color: #000;
 }
 /*--- Responsive Styles ---*/
-
 @media (max-width: 767px) {
   #site-nav .navbar-nav {
     margin: 0;
@@ -536,12 +515,16 @@ header{
   #site-nav .navbar-nav > li {
     float: none;
     display: inline-block;
+
     //width: 100%;
   }
   #site-nav .navbar-collapse {
-    padding: 0px;
+    padding: 0;
   }
-  #site-nav .navbar-inverse .navbar-nav > li > a {} #site-nav .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+  #site-nav .navbar-inverse .navbar-nav > li > a {
+
+  }
+  #site-nav .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
     text-decoration: none;
   }
   #site-nav .navbar-inverse .navbar-nav .open .dropdown-menu>li>a:hover,
@@ -557,7 +540,7 @@ header{
   }
   #site-nav .navbar-inverse .navbar-collapse,
   #site-nav .navbar-inverse .navbar-form {
-    border: 0px;
+    border: 0;
   }
   #site-nav .company-logo {
     padding-bottom: 25px;
@@ -566,9 +549,9 @@ header{
 /* ==========================================================================
     CUSTOM
 ========================================================================== */
-
 #site-nav,
 #footer {
+
   // background-color: #022169;
 }
 #site-nav .company-logo {
@@ -605,7 +588,7 @@ header{
 }
 #site-nav .linkedin a {
   padding-left: 5px !important;
-  padding-right: 0px !important;
+  padding-right: 0 !important;
 }
 #site-nav .fa-inverse {
   color: #022169;
@@ -629,6 +612,7 @@ header{
   #site-nav .company-logo {
     width: 100%;
     margin: 0 auto;
+
     //text-align: center;
     margin-top: 17px;
   }
@@ -673,7 +657,6 @@ header{
 #site-nav .navbar-toggle.collapsed .bottom-bar {
   transform: rotate(0);
 }
-
 .navbar-brand {
   font-size: 17px;
 }

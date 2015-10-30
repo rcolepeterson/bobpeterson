@@ -53,7 +53,9 @@ angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '
       var toggle = $(".navbar-toggle").is(":visible");
       if (toggle) {
         $(".navbar-collapse").collapse('hide');
+        $(".navbar-toggle").addClass('collapsed');
       }
+
     }
 
   }
