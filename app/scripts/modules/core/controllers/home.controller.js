@@ -51,6 +51,10 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$l
 
     }
 
+    $scope.about = function(){
+      TweenLite.to($(".sidebar"), .35, {width:'80%'});
+    }
+
     /**
      * User has clicked on a left menu link.
      * @param  {[type]} n [description]

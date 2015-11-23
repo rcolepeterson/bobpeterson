@@ -4,18 +4,19 @@
     <div class="row">
       <div class="col-sm-3 col-md-2 sidebar">
         <div class="logo">
-          <a ui-sref="home" class=""><h1>Bob Peterson</h1></a>
+          <a ui-sref="/"><h1>Bob Peterson</h1></a>
           <p>photographer</P>
         </div>
+        <!-- <a data-ng-click="about()" class="about"><h4>About</h4></a>
+        <div class="row">&nbsp;</div> -->
 
         <div class="row">&nbsp;</div>
-        <a data-ng-click="about()" class="about"><h4>About</h4</a>
-        <div class="row">&nbsp;</div>
         <ul class="nav nav-sidebar">
-          <div ng-repeat="item in homeModel.categoryies.category">
-            <li><a data-ng-click="selectACategory($index)" ng-class="{active: $index=== homeModel.curCatNum}">{{item.categoryName}}</a>
+
+            <li ng-repeat="item in homeModel.categoryies.category">
+              <a data-ng-click="selectACategory($index)" ng-class="{active: $index=== homeModel.curCatNum}">{{item.categoryName}}</a>
             </li>
-          </div>
+
           <div class="row">&nbsp;</div>
           <div class="row">&nbsp;</div>
           <div class="contact">

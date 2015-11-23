@@ -83,8 +83,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
   font-family: 'Droid Serif', serif;
 }
 
+//vars
+$bg-col: #191919;
+
 body {
-    background-color: #191919;
+    background-color: $bg-col;
     @include Roboto;
 }
 
@@ -94,8 +97,10 @@ body {
 a {
     text-decoration: none;
     cursor: pointer;
+    color:#999;
     &:hover {
         text-decoration: none;
+        color:#fff;
     }
 }
 
