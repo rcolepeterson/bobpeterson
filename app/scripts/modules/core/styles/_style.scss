@@ -1,7 +1,7 @@
 .hide-side-bar {
-  left: 8px;
+  left: 6px;
   top: 20px;
-  color: #ccc;
+  color: #a1a2a5;
   cursor: pointer;
   z-index: 99999;
 }
@@ -16,27 +16,35 @@
   border-right: 1px solid black;
   .logo {
   //  color: $bg-col;
-  color: #428bca;
-    @include Roboto;
+    text-transform: uppercase;
+    color: #428bca;
+    font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+    // @include Roboto;
     padding-top: 11px;
     h1 {
-      color: #428bca;
+      color: #fff;
       margin-bottom: 0;
-      font-size: 26px;
+      font-size: 22px;
+      .last {
+        color:#a1a2a5;
+      }
     }
     a {
       color: $bg-col;
     }
     p {
-      margin-top: -4px;
+      margin-top: 0px;
       font-size: 14px;
       // letter-spacing: 1px;
-      text-transform: uppercase;
+
     }
   }
   .contact {
+    text-transform: uppercase;
+    color:#a1a2a5;
+    font-size: 12px;
     .agent {
-      color: #999;
+      //color: #999;
     }
   }
   .social {
