@@ -40,7 +40,7 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$l
         return;
       }
 
-  //TweenLite.to($(".sidebar"), .35, {width:'100%'});
+      //TweenLite.to($(".sidebar"), .35, {width:'100%'});
 
       //open
       TweenLite.to($(".hide-side-bar"), .35, {rotation:180, ease:ease});
@@ -53,6 +53,28 @@ angular.module('core').controller('HomeController', ['$scope', '$rootScope', '$l
 
     $scope.about = function(){
       TweenLite.to($(".sidebar"), .35, {width:'80%'});
+    }
+
+    $scope.shareFB = function(){
+      fbShare('http://www.bobpeterson.com','bobpeterson','Bob Peterson is the Seattle Photographer who became famous taking pictures for Sports Illustrated, Life and Nike.', 'http://bobpeterson.com/photographer/images/NIKE/NIKE01.jpg', 520, 350);
+    }
+
+    $scope.shareTwitter = function(){
+      twitShare('Bob Peterson is the Seattle Photographer who became famous taking pictures for Sports Illustrated, Life and Nike.', 'http://www.bobpeterson.com');
+    }
+
+    function fbShare(url, title, descr, image, winWidth, winHeight) {
+        var winTop = (screen.height / 2) - (winHeight / 2);
+        var winLeft = (screen.width / 2) - (winWidth / 2);
+        window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + 0 + ',left=' + 0 + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+    }
+
+    function twitShare(desc, shareUrl) {
+        // var winTop = (screen.height / 2) - (winHeight / 2);
+        // var winLeft = (screen.width / 2) - (winWidth / 2);
+        // window.open('http://bit.ly/1VHqj9F?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+
+        window.open('http://twitter.com/share?text=' + desc + '&url=' + shareUrl, 'share', 'toolbar=0,status=0,width=680,height=380');
     }
 
     /**
